@@ -316,9 +316,9 @@ Function Start-ContactMigration
 
     #>
 
-    Import-Module DLConversionV2 -PassThru
+    Import-Module DLConversionV2 -PassThru -Force
 
-    Get-ADObjectConfiguration -groupSMTPAddress "tim@e-mcmichael.com" -globalCatalogServer "azure-dc-0.home.e-mcmichael.com" -parameterSet '*' -errorAction STOP -adCredential (get-credential)
+    & {Get-ADObjectConfiguration -groupSMTPAddress "tim@e-mcmichael.com" -globalCatalogServer "azure-dc-0.home.e-mcmichael.com" -parameterSet '*' -errorAction STOP -adCredential (get-credential)}
 
     <#
 
