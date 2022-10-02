@@ -316,12 +316,6 @@ Function Start-ContactMigration
 
     #>
 
-    $DLConversionV2 = Import-Module DLConversionV2 -PassThru -Force
-
-    & $DLConversionV2 {Get-ADObjectConfiguration -groupSMTPAddress "tim@e-mcmichael.com" -globalCatalogServer "azure-dc-0.home.e-mcmichael.com" -parameterSet '*' -errorAction STOP -adCredential (get-credential)}
-
-    
-
     [cmdletbinding()]
 
     Param
@@ -698,6 +692,10 @@ Function Start-ContactMigration
     #Log start of DL migration to the log file.
 
     new-LogFile -groupSMTPAddress $groupSMTPAddress.trim() -logFolderPath $logFolderPath
+
+    #Importing private functions that are shared with the DLConversionV2 module.
+
+    $DLConversionV2 = Import-Module DLConversionV2 -PassThru -Force
 
     #Output all parameters bound or unbound and their associated values.
 
