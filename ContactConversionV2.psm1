@@ -695,7 +695,7 @@ Function Start-ContactMigration
 
     #Log start of DL migration to the log file.
 
-    & $DLConversionv2 {new-LogFile -groupSMTPAddress $groupSMTPAddress.trim() -logFolderPath $logFolderPath}
+    $DLConversionv2 {new-LogFile -groupSMTPAddress $groupSMTPAddress.trim() -logFolderPath $logFolderPath}
 
     #Output all parameters bound or unbound and their associated values.
 
