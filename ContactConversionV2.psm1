@@ -16,7 +16,7 @@
 #############################################################################################
 
 
-Function Start-DistributionListMigration 
+Function Start-ContactMigration 
 {
     <#
     .SYNOPSIS
@@ -315,6 +315,8 @@ Function Start-DistributionListMigration
     Start-DistributionListMigration -groupSMTPAddress $groupSMTPAddress -globalCatalogServer server.domain.com -activeDirectoryCredential $cred -logfolderpath c:\temp -dnNoSyncOU "OU" -exchangeOnlineCredential $cred -azureADCredential $cred -enableHybridMailFlow:$TRUE -triggerUpgradeToOffice365Group:$TRUE -useCollectedOnPremMailboxFolderPermissions:$TRUE -useCollectedOffice365MailboxFolderPermissions:$TRUE -useCollectedOnPremSendAs:$TRUE -useCollectedOnPremFullMailboxAccess:$TRUE -useCollectedOffice365FullMailboxAccess:$TRUE
 
     #>
+
+    <#
 
     [cmdletbinding()]
 
@@ -5646,4 +5648,7 @@ Function Start-DistributionListMigration
     #Archive the files into a date time success folder.
 
     Start-ArchiveFiles -isSuccess:$TRUE -logFolderPath $logFolderPath
+
+#>
 }
+
