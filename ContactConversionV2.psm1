@@ -320,7 +320,7 @@ Function Start-ContactMigration
 
     & $DLConversionV2 {Get-ADObjectConfiguration -groupSMTPAddress "tim@e-mcmichael.com" -globalCatalogServer "azure-dc-0.home.e-mcmichael.com" -parameterSet '*' -errorAction STOP -adCredential (get-credential)}
 
-    <#
+    
 
     [cmdletbinding()]
 
@@ -700,6 +700,8 @@ Function Start-ContactMigration
     new-LogFile -groupSMTPAddress $groupSMTPAddress.trim() -logFolderPath $logFolderPath
 
     #Output all parameters bound or unbound and their associated values.
+
+    <#
 
     Out-LogFile -string "********************************************************************************"
     Out-LogFile -string "PARAMETERS"
