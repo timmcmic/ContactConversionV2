@@ -689,13 +689,13 @@ Function Start-ContactMigration
         }
     }
 
-    #Log start of DL migration to the log file.
-
-    new-LogFile -groupSMTPAddress $groupSMTPAddress.trim() -logFolderPath $logFolderPath
-
     #Importing private functions that are shared with the DLConversionV2 module.
 
     $DLConversionV2 = Import-Module DLConversionV2 -PassThru -Force
+
+    #Log start of DL migration to the log file.
+
+    & $DLConversionv2 {new-LogFile -groupSMTPAddress $groupSMTPAddress.trim() -logFolderPath $logFolderPath}
 
     #Output all parameters bound or unbound and their associated values.
 
